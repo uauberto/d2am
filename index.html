@@ -5,13 +5,82 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>D2AM - Consultoria de Dados</title>
-    <meta name="description" content="Website institucional para a consultoria de análise de dados d2am, destacando serviços, sobre a empresa e formas de contato para transformar dados em decisões estratégicas." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'primary': '#0A3129',
+              'secondary': '#104538',
+              'accent': '#2A7F60',
+              'highlight': '#49B885',
+              'light': '#F0F2F5',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              display: ['Outfit', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Outfit:wght@700&display=swap" rel="stylesheet">
-  </head>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^11.1.9/"
+  }
+}
+</script>
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+  .animate-highlight {
+    position: relative;
+    display: inline-block;
+    overflow: hidden; /* Hide the pseudo-element when it's outside the bounds */
+  }
+  .animate-highlight::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(100deg, transparent, rgba(255,255,255,0.2), transparent);
+    /* Start transformed off-screen to the left */
+    transform: translateX(-101%);
+    /* Trigger the animation */
+    animation: highlight-sweep 2s ease-in-out 1.5s;
+  }
+
+  @keyframes highlight-sweep {
+    0% {
+      transform: translateX(-101%);
+    }
+    100% {
+      transform: translateX(101%);
+    }
+  }
+
+  .highlight-gradient-text {
+    background: linear-gradient(45deg, #49B885, #84e1b4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+</style>
+</head>
   <body class="bg-primary text-light font-sans">
     <div id="root"></div>
-    <script type="module" src="/src/index.tsx"></script>
+    <script type="module" src="/index.tsx"></script>
   </body>
 </html>
